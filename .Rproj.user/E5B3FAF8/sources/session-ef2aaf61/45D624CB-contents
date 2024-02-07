@@ -1,0 +1,84 @@
+# Data structures
+cats_df <- data.frame(coat = c("calico", "black", "tabby"),
+                  weight = c(2.1,5.0,3.2),         
+                  likes_strings = c(1,0,1))
+rm(cats)
+cats_df
+cats_df$likes_strings
+cats_df$weight + 2
+
+paste("My cat is", cats_df$coat)
+
+#adding numerical to categorical
+cats_df$weight +cats_df$coat
+
+#Data structures
+typeof(TRUE)
+typeof(cats_df$coat)
+
+#wrting files
+?write.csv
+write.csv(cats_df, file = "cats_df.csv", row.names = FALSE, quote = FALSE)
+
+sessionInfo()         
+
+example_mat <- matrix(0, ncol =6, nrow = 3) 
+example_mat
+
+dim.data.frame(example_mat)
+dim(cats_df)
+
+
+str(cats_df)
+
+# Subsetting
+head(cats_df)
+cats_df[2]
+cats_df$coat
+
+str(cats_df$coat)
+cats_df[1,2,3]
+
+
+cats_df[1:2,2]
+
+
+example_mat[1:2,4:6]
+cats_df[c(1,3), c(1,3)]
+
+
+
+# Install Package!
+install.packages("ggplot2")
+library("ggplot2")
+
+download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/main/episodes/data/gapminder_data.csv", destfile = "gapminder_data.csv")
+
+
+
+gapminder_df <- read.csv(file = "gapminder_data.csv")
+str(gapminder_df)
+dim(gapminder_df)
+
+
+# Plot the data
+ggplot(data = gapminder_df,
+       mapping = aes(x = gdpPercap, y = lifeEx))
+                     color = continent) +
+  geom_point(alpha = 0.5, aes(color = continent,
+                          shape = continent,
+                          size = pop))+
+  labs(x = "GDP Per Capita", y = "life expectancy (yrs)") +
+  scale_x_log10() + 
+  geom_smooth(method = "lm")
+
+
+
+ 
+
+
+
+
+
+
+
